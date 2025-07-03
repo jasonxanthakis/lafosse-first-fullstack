@@ -5,7 +5,7 @@ const fruitForm = document.querySelector("#inputSection form");
 
 const style = document.createElement("style");
 style.textContent = "img {width:auto;height:150px}";
-document.head.appendChild(style);
+//document.head.appendChild(style);
 
 fruitForm.addEventListener(
     "submit",
