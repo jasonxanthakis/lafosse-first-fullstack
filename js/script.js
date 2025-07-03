@@ -1,7 +1,11 @@
-const x = require('./script2.js');
-const fruitList = document.querySelector("#fruitSection ul")
+const API_KEY = require('./key.js');
+const fruitList = document.querySelector("#fruitSection ul");
 
 const fruitForm = document.querySelector("#inputSection form");
+
+const style = document.createElement("style");
+style.textContent = "img {width:100px;height:100px}";
+document.head.appendChild(style);
 
 fruitForm.addEventListener(
     "submit",
@@ -24,6 +28,8 @@ function addFruit(fruit) {
         e => deleteFruit(e, fruit.nutritions.calories)
     );
 
+    img = fetchFruitImage(fruit.name, li);
+
     cal += fruit.nutritions.calories;
     fruitNutrition.textContent = cal;
 }
@@ -43,5 +49,19 @@ function fetchFruitData(fruit) {
     fetch(`https://fruit-api-5v0j.onrender.com/fruits/${fruit}`)
         .then((resp) => resp.json())
         .then(data => addFruit(data))
+        .catch((e) => console.log(e));
+}
+
+function fetchFruitImage(fruit, li) {
+    let URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent(fruit);
+    fetch(URL)
+        .then((resp) => resp.json())
+        .then(data => {
+            console.log(data.hits[0]);
+            let imgURL = data.hits[0].largeImageURL;
+            const img = document.createElement("img");
+            img.setAttribute("src", imgURL);
+            li.appendChild(img);
+        })
         .catch((e) => console.log(e));
 }
