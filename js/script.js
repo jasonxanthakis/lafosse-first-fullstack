@@ -14,21 +14,26 @@ function extractFruit(e) {
     e.target.fruitInput.value = "";
 }
 
-const cal = []
+let cal = 0;
 function addFruit(fruit) {
     const li = document.createElement("li");
     li.textContent = fruit.name;
     fruitList.appendChild(li);
-    li.addEventListener("click", deleteFruit);
+    li.addEventListener(
+        "click", 
+        e => deleteFruit(e, fruit.nutritions.calories)
+    );
 
-    cal[cal.length] = fruit.nutritions.calories;
-    fruitNutrition.textContent = cal.reduce((temp, a) => temp + a);
+    cal += fruit.nutritions.calories;
+    fruitNutrition.textContent = cal;
 }
 
-function deleteFruit(e) {
+function deleteFruit(e, cals) {
     e.target.remove()
     //e.target.parentNode.removeChild(e.target)
-    
+
+    cal -= cals;
+    fruitNutrition.textContent = cal;
 }
 
 function fetchFruitData(fruit) {
