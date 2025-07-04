@@ -1,4 +1,5 @@
 const API_KEY = require('./key.js');
+
 const fruitList = document.querySelector("#fruitSection ul");
 
 const fruitForm = document.querySelector("#inputSection form");
