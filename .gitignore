@@ -1,3 +1,4 @@
 /node_modules
 /js/key.js
+/js/bundle.js
 .env
