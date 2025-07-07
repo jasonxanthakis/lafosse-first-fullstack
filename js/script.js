@@ -1,4 +1,4 @@
-const API_KEY = require('./key.js');
+//const API_KEY = require('./key.js');
 
 //const API_KEY = process.env.API_KEY;
 
