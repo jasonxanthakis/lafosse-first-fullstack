@@ -19,10 +19,40 @@ fruitForm.addEventListener(
     extractFruit
 );
 
+createForm.addEventListener("submit", createNewFruit);
+
 function extractFruit(e) {
     e.preventDefault();
     fetchFruitData(e.target.fruitInput.value);
     e.target.fruitInput.value = "";
+}
+
+async function createNewFruit(e) {
+    e.preventDefault();
+    const data = {name: e.target.fruitInput.value};
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }
+    //Make sure to add your deployed API URL in this fetch
+    const response = await fetch(`https://fruit-salad-builder-backend.onrender.com/fruits`, options);
+    let messageStatus = document.querySelector("#message")
+    if(response.status === 201) {
+        e.target.fruitInput.value = ''
+        messageStatus.textContent = "Fruit successfully created."
+        setTimeout(() => {
+          messageStatus.textContent = ""
+        }, 4000)
+    } else {
+        e.target.fruitInput.value = ''
+        messageStatus.textContent = "This fruit already exists. Please enter another fruit!"
+        setTimeout(() => {
+          messageStatus.textContent = ""
+        }, 4000)
+    }
 }
 
 let cal = 0;
