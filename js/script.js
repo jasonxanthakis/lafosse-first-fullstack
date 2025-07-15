@@ -56,7 +56,7 @@ function fetchFruitData(fruit) {
     if (fruit.trim() == "" || ['greenapple'].includes(fruit)) {
         return;
     }
-    fetch(`https://fruit-api-5v0j.onrender.com/fruits/${fruit}`)
+    fetch(`https://fruit-salad-builder-backend.onrender.com/fruits/${fruit}`)
         .then((resp) => resp.json())
         .then(data => addFruit(data))
         .catch((e) => console.log(e));
