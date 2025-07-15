@@ -4,7 +4,7 @@ const fruitNutrition = document.querySelector("#nutritionSection p");
 
 let cal = 0;
 const fruitCal = {};
-const apiKey = "API KEY HERE";
+const apiKey = "51162602-6f98114165846c3f1144f02d1";
 
 fruitForm.addEventListener("submit", extractFruit);
 
