@@ -8,6 +8,8 @@ const API_KEY = '51162602-6f98114165846c3f1144f02d1';
 
 const fruitList = document.querySelector("#fruitSection ul");
 
+const createForm = document.querySelector("#create-form")
+
 const fruitForm = document.querySelector("#inputSection form");
 
 const style = document.createElement("style");
