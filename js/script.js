@@ -2,7 +2,9 @@
 
 //const API_KEY = process.env.API_KEY;
 
-const API_KEY = window.API_KEY;
+//const API_KEY = window.API_KEY;
+
+const API_KEY = '51162602-6f98114165846c3f1144f02d1';
 
 const fruitList = document.querySelector("#fruitSection ul");
 
