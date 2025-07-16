@@ -1,13 +1,14 @@
 {
-  "name": "fruit-salad-app",
+  "name": "fruit-salad",
   "version": "1.0.0",
-  "description": "Fruit salad application created as part of La Fosse's 9 week training, during week 1.",
-  "main": "./js/script.js",
+  "main": "script.js",  
   "scripts": {
-    "dev": "watchify ./js/script.js -o ./js/bundle.js"
+    "dev": "watchify ./script.js -o bundle.js"
   },
-  "author": "me",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "description": "",
   "devDependencies": {
     "watchify": "^4.0.0"
   }
