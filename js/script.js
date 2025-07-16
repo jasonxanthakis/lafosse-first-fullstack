@@ -40,7 +40,7 @@ async function createNewFruit(e) {
         body: JSON.stringify(data)
     }
     //Make sure to add your deployed API URL in this fetch
-    const response = await fetch(`https://fruit-salad-builder-backend.onrender.com/fruits`, options);
+    const response = await fetch(`https://lafosse-first-fullstack-backend.onrender.com/fruits`, options);
     let messageStatus = document.querySelector("#message")
     if(response.status === 201) {
         e.target.fruitInput.value = ''
@@ -90,7 +90,7 @@ function fetchFruitData(fruit) {
     if (fruit.trim() == "" || ['greenapple'].includes(fruit)) {
         return;
     }
-    fetch(`https://fruit-salad-builder-backend.onrender.com/fruits/${fruit}`)
+    fetch(`https://lafosse-first-fullstack-backend.onrender.com/fruits/${fruit}`)
         .then((resp) => resp.json())
         .then(data => addFruit(data))
         .catch((e) => console.log(e));
